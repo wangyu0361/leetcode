@@ -115,10 +115,51 @@ public class Library{
 
 	public ListNode getIntersectionNode1(ListNode headA, ListNode headB) {
 		if(headA==null || headB==null){
-			return null
+			return null;
 		}
-		
 
+		int aLength=0;
+		int bLength=0;
+		int start=0;
+		ListNode a = headA;
+		ListNode b= headB;
+		while(a!=null){
+			aLength++;
+			a=a.next;
+		}
+		while(b!=null){
+			bLength++;
+			b=b.next;
+		}  
+		a=headA;
+		b=headB;
+
+		if(aLength>=bLength){
+			start=aLength-bLength;
+			while(start>0){
+				a=a.next;
+				start--;
+			}
+
+		}
+		else{
+			start=bLength-aLength;
+			while(start>0){
+				b=b.next;
+				start--;
+			}
+		}
+
+		while(a!=null){
+			if(a==b){
+				break;
+			}
+			else{
+				a=a.next;
+				b=b.next;
+			}
+		}
+		return a;
 	}
 
 } 
