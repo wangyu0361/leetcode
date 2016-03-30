@@ -1,15 +1,10 @@
 package leetcode.leetcode;
 
+import dataModel.ListNode;
+
 public class Library{
 
-	public class ListNode {
-		int val;
-		ListNode next;
-		ListNode(int x) {
-			val = x;
-			next = null;
-		}
-	}
+
 
 	/***
 	 * quick sort algorithm to sort a char array, the idea is partition the array into 2 parts : left part less than an element ( randomly pick, usually the fist or last element)
