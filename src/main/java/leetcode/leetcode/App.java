@@ -12,7 +12,10 @@ public class App
 	public static void main( String[] args )
 	{
 		Library library = new Library();
-		char[] test = {'a','a','e','h','w','t','y','w','b','c','m'};
+		//char[] test = {'a','a','e','h','w','t','y','w','b','c','m'};
+		Comparable[] test = {1,2,4,5,6,7,9};
+		
+		System.out.println(library.binarySearch(test,9,0, 6));
 		//System.out.println(library.quickSort(test, 0, test.length-1));
 
 		/*ListNode listNode1 = new ListNode(1);
@@ -22,6 +25,7 @@ public class App
 			temp.next=new ListNode(i);
 			temp=temp.next;
 		}
+		
 
 
 		ListNode listNode2 = new ListNode(77);

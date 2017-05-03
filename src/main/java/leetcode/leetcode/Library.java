@@ -2,6 +2,7 @@ package leetcode.leetcode;
 
 import dataModel.ListNode;
 
+
 public class Library{
 
 
@@ -158,10 +159,25 @@ public class Library{
 		return a;
 	}
 	
-	
-	public char[] bucketSort(char[] tar){
+	public Comparable binarySearch(Comparable[] tar, Comparable key,int lo, int hi ){
+		Comparable mid ;
+		if (lo > hi) return null;
+		mid = tar[lo+(hi-lo)/2];
+		System.out.println(mid);
+		if(key.compareTo(mid) > 0){
+			return binarySearch(tar,key,(hi-lo)/2+1,hi);
+		}
+		if(key.compareTo(mid) < 0){
+			return binarySearch(tar,key,lo,(hi-lo)/2-1);
+		}
+		return mid;
 		
-		return tar;
+
+		
+		
 	}
+	
+	
+
 
 } 
