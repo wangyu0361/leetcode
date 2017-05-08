@@ -16,7 +16,7 @@ public class Library{
 	 * @param hi
 	 * @return
 	 */
-	public char[] quickSort (char[] p,int lo,int hi){
+	public Comparable[] quickSort (Comparable[] p,int lo,int hi){
 
 		if(lo<hi){
 			int index= partition(p,lo,hi);
@@ -28,17 +28,17 @@ public class Library{
 		return p;
 	} 
 
-	public int partition (char[] p,int lo,int hi) {
+	public int partition (Comparable[] p,int lo,int hi) {
 		int returnme=0;
-		char pivot= p[hi];
+		Comparable pivot= p[hi];
 		int i=lo;
 		int j=hi-1;
 		while(i<=j){
-			if(p[i]<pivot){
+			if(p[i].compareTo(pivot)<0){ 
 				i++;
 				continue;
 			}
-			else if(p[j]>=pivot){
+			else if(p[i].compareTo(pivot)>=0){
 				j--;
 				continue;
 			}
@@ -50,8 +50,8 @@ public class Library{
 		return returnme;
 	}
 
-	public void exch(char[] p,int a,int b){
-		char temp;
+	public void exch(Comparable[] p,int a,int b){
+		Comparable temp;
 		if(a<p.length && b<p.length){
 			temp=p[a];
 			p[a]=p[b];
@@ -163,18 +163,15 @@ public class Library{
 		Comparable mid ;
 		if (lo > hi) return null;
 		mid = tar[lo+(hi-lo)/2];
+		int midIndx = lo+(hi-lo)/2;
 		System.out.println(mid);
 		if(key.compareTo(mid) > 0){
-			return binarySearch(tar,key,(hi-lo)/2+1,hi);
+			return binarySearch(tar,key,midIndx+1,hi);
 		}
 		if(key.compareTo(mid) < 0){
-			return binarySearch(tar,key,lo,(hi-lo)/2-1);
+			return binarySearch(tar,key,lo,midIndx-1);
 		}
 		return mid;
-		
-
-		
-		
 	}
 	
 	

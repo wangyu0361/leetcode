@@ -1,5 +1,7 @@
 package leetcode.leetcode;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import dataModel.ListNode;
 import leetcode.leetcode.Library;
 
@@ -12,11 +14,14 @@ public class App
 	public static void main( String[] args )
 	{
 		Library library = new Library();
-		//char[] test = {'a','a','e','h','w','t','y','w','b','c','m'};
-		Comparable[] test = {1,2,4,5,6,7,9};
+		Comparable[] test = {'a','a','e','h','w','t','y','w','b','c','m'};
+		//Comparable[] test = {1,2,4,5,6,7,9};
+		Comparable[] result = library.quickSort(test, 0, test.length-1);
+		for(int i=0 ; i< result.length ;i++){
+			System.out.println(result[i]);
+		}
 		
-		System.out.println(library.binarySearch(test,9,0, 6));
-		//System.out.println(library.quickSort(test, 0, test.length-1));
+		System.out.println(library.binarySearch(library.quickSort(test, 0, test.length-1), 'w', 0, test.length-1) );
 
 		/*ListNode listNode1 = new ListNode(1);
 		ListNode temp = new ListNode(2);
