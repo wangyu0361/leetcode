@@ -174,6 +174,33 @@ public class Library{
 		return mid;
 	}
 	
+	public class ST <key,value>{
+		private int initialSize = 10;
+		private key[] keyArray = (key[]) new Comparable[initialSize];
+		private value[] valArray = (value[]) new Comparable[initialSize];
+		private int size = initialSize;
+		
+		public void  put(key k,value v){
+			
+		}
+		public value get (key k){
+			
+		}
+		public void delete (key k){
+			
+		}
+		public int size(){
+			return size;
+		}
+		
+		private int rank(key k){
+			
+		}
+		
+		
+		
+	}
+	
 	
 
 
