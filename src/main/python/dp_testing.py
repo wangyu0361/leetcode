@@ -41,3 +41,30 @@ def dp_opt(arr):
 
 a = dp_opt(arr)
 print(a)
+
+from functools import wraps
+import time
+import numpy as np
+
+arr = [1,35,7,6,3,5,6,7]
+
+def sol(i,s):
+    result = np.zeros((len(arr),s+1),dtype=bool)
+
+    result[0,:] = False
+    result[0,0] = True
+    result[0,arr[0]]=True
+    for i in range(1,len(arr)):
+        for ii in range(0,s+1):
+            if ii==0:
+                result[i,ii]=True
+            elif ii-arr[i] < 0:
+                result[i,ii] = result[i-1,ii]
+            else:
+                result[i,ii]= result[i-1,ii] or result[i-1,ii-arr[i]]
+    print(result)
+    return result
+
+s=54
+a =sol(arr,s)
+print(a[len(arr)-1,s])
