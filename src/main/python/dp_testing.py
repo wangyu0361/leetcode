@@ -48,6 +48,18 @@ import numpy as np
 
 arr = [1,35,7,6,3,5,6,7]
 
+def sol(arr,i,s):
+    if s==0:
+        return True
+    if i==0:
+        if arr[0] == s:
+            return True
+        else:
+            return False
+    if s<0:
+        return False
+    return sol(arr,i-1,s-arr[i]) or sol(arr,i-1,s)
+
 def sol(i,s):
     result = np.zeros((len(arr),s+1),dtype=bool)
 
